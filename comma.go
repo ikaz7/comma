@@ -1,4 +1,5 @@
-package main
+// Comma inserts commas in non-negative decimal integer strings non-recursively
+package comma
 
 import (
 	"bytes"
@@ -7,15 +8,7 @@ import (
 	"unicode"
 )
 
-func main() {
-	numbers := os.Args[1:]
-	for _, number := range numbers {
-		result := comma([]byte(number))
-		fmt.Printf("%s\n", result)
-	}
-}
-
-func comma(s []byte) string {
+func Parse(s []byte) string {
 	var f []byte // holds fractional part
 	d := bytes.Index(s, []byte("."))
 	if d >= 0 {
